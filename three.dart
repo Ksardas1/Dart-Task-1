@@ -4,21 +4,27 @@ import 'dart:io';
 // Строковые значения должны игнорироваться с соответствующим сообщением
 
 void main() {
-  List<int> numberList;
-  for (;;) {
-    // Запуск бесконечного цикла
+  List<int> numberList = []; // Создаем массив для добавления переменных
+  int a; // Переменная для вывода длины массива
+
+  for (;;) // Запуск бесконечного цикла
+  {
     print('Введите целое число: '); // Запрос ввода
     String? name = stdin.readLineSync(); // Ввод
-    final check = int.tryParse(name!); // Попытка присвоения строки в виде числа
+    final check = int.tryParse(name!); // Проверяем, что введено целое число
 
-    if (check == null) {
-      // Если не получилось
+    if (check == null) // Если не получилось
+    {
       print('Это не целое число'); // Говорим, что это не число
-    } else {
-      // Если получилось
-      numberList.add(check);
-      print(check); // Выводим на экран
-      print('' + numberList.length);
+      print(numberList); // Выводим массив на экран
+      a = numberList.length; // Определяем длину массива
+      print('Длина массива: $a'); // Выводим длину массива
+    } else // Если получилось
+    {
+      numberList.add(check); // Добавляем элемент в массив
+      print(numberList); // Выводим массив на экран
+      a = numberList.length; // Определяем длину массива
+      print('Длина массива: $a'); // Выводим длину массива
     }
   }
 }
